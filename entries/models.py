@@ -17,9 +17,9 @@ class Project(models.Model):
 class Entry(models.Model):
     user = models.ForeignKey(User, related_name='time_entries')
     project = models.ForeignKey(Project, related_name='entries')
-    hours = models.IntegerField()
-    minutes = models.IntegerField()
-    seconds = models.IntegerField()
+    hours = models.IntegerField(default=0)
+    minutes = models.IntegerField(default=0)
+    seconds = models.IntegerField(default=0)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
