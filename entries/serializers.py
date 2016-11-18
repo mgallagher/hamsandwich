@@ -7,6 +7,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = ('manager', 'members', 'name', 'description', 'updated', 'created')
+        depth = 1
 
 
 class EntrySerializer(serializers.ModelSerializer):

@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework_jwt.views import obtain_jwt_token
+
 from entries.views import entry_list, ProjectList, ProjectDetail, ProjectCreate, ProjectUpdate
 from .routers import api_router
 
@@ -26,4 +28,5 @@ urlpatterns = [
     url(r'^projects/create/', ProjectCreate.as_view()),
     url(r'^projects/(?P<pk>[0-9]+)/update/$', ProjectUpdate.as_view()),
     url(r'^v1/', include(api_router.urls)),
+    url(r'v1/api-token-auth/$', obtain_jwt_token)
 ]
