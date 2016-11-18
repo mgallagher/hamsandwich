@@ -4,9 +4,14 @@ from .models import Project, Entry
 
 
 class ProjectSerializer(serializers.ModelSerializer):
+    number_of_entries = serializers.SerializerMethodField()
+
+    def get_number_of_entries(self, project):
+        return project.entries.count()
+
     class Meta:
         model = Project
-        fields = ('manager', 'members', 'name', 'description', 'updated', 'created')
+        fields = ('manager', 'members', 'name', 'description', 'updated', 'created', 'number_of_entries')
         depth = 1
 
 
