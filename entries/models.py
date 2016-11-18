@@ -34,4 +34,4 @@ class Entry(models.Model):
     created     = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '{} - {}:{}'.format(self.user, self.hours, self.minutes)
+        return '{} - {}:{}'.format(self.user, self.start_time, self.end_time)
