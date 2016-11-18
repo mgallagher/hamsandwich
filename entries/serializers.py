@@ -18,4 +18,4 @@ class ProjectSerializer(serializers.ModelSerializer):
 class EntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = ('user', 'project', 'hours', 'minutes', 'seconds', 'updated', 'created')
+        fields = ('user', 'project', 'type', 'start_time', 'end_time', 'updated', 'created')

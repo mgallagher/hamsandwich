@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 
 class EntryType(models.Model):
     name        = models.CharField(max_length=255)
@@ -27,7 +28,7 @@ class Entry(models.Model):
     user        = models.ForeignKey(User, related_name='time_entries')
     project     = models.ForeignKey(Project, related_name='entries')
     type        = models.ForeignKey(EntryType, related_name='entries')
-    start_time  = models.DateTimeField(auto_now=True)
+    start_time  = models.DateTimeField(default=timezone.now)
     end_time    = models.DateTimeField(blank=True, null=True)
     updated     = models.DateTimeField(auto_now=True)
     created     = models.DateTimeField(auto_now_add=True)
